@@ -44,7 +44,8 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Nuxt.js modules
@@ -53,12 +54,25 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {},
+  sitemap: {
+    hostname: 'https://example.com',
+    exclude: [
+      // '/secret',
+      // '/admin/**'
+    ],
+    routes: async () => {
+      // const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
+      // return data.map((user) => `/users/${user.username}`)
+    }
+    // options
+  },
   styleResources: {
     scss: [
       './assets/scss/_variables.scss', // use underscore "_" & also file extension ".scss"
