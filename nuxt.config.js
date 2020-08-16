@@ -28,8 +28,7 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css: ['@/assets/scss/_all.scss'],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
@@ -45,6 +44,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/style-resources'
   ],
   /*
   ** Nuxt.js modules
@@ -59,6 +59,12 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {},
+  styleResources: {
+    scss: [
+      './assets/scss/_variables.scss', // use underscore "_" & also file extension ".scss"
+      './assets/scss/_mediaquery.scss'
+    ]
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
