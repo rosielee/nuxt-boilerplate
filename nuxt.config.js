@@ -1,3 +1,4 @@
+import { createSEOMeta } from './utils/seo'
 
 export default {
   /*
@@ -17,9 +18,13 @@ export default {
   head: {
     title: process.env.npm_package_name || '',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      ...createSEOMeta({
+        title: 'insert title here',
+        description:
+          'insert description here',
+        image: '[Insert_NarutoDose_Image_URL]',
+        url: process.env.HOST_NAME,
+      }),
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -62,15 +67,16 @@ export default {
   */
   axios: {},
   sitemap: {
-    hostname: 'https://example.com',
+    hostname: process.env.HOST_NAME,
     exclude: [
-      // '/secret',
+      '/404',
+      '/error',
       // '/admin/**'
     ],
-    routes: async () => {
-      // const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
-      // return data.map((user) => `/users/${user.username}`)
-    }
+    // routes: async () => {
+    // const { data } = await axios.get('https://jsonplaceholder.typicode.com/users')
+    // return data.map((user) => `/users/${user.username}`)
+    // }
     // options
   },
   styleResources: {
@@ -78,6 +84,9 @@ export default {
       './assets/scss/_variables.scss', // use underscore "_" & also file extension ".scss"
       './assets/scss/_mediaquery.scss'
     ]
+  },
+  generate: {
+    fallback: true
   },
   /*
   ** Build configuration

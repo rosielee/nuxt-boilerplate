@@ -11,7 +11,7 @@
       // process.env.ENV_TEST
       // or
       // context.env.ENV_TEST
-      console.log()
+      // console.log(process.env.HOST_NAME)
     },
   }
 </script>
