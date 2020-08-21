@@ -27,6 +27,11 @@
     mounted() {
       // console.log(this.navStatus)
     },
+    watch: {
+      $route(e) {
+        this.navStatus = false
+      },
+    },
   }
 </script>
 

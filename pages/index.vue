@@ -1,6 +1,11 @@
 <template>
   <main>
     <h1>Dave</h1>
+    <slider-container>
+      <div class="swiper-slide">Slide a</div>
+      <div class="swiper-slide">Slide b</div>
+      <div class="swiper-slide">Slide 3</div>
+    </slider-container>
   </main>
 </template>
 
