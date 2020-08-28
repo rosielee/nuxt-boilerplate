@@ -3,7 +3,9 @@
     <section id="brand" @click="navStatus = false">
       <nuxt-link to="/">brand here</nuxt-link>
     </section>
-    <main-nav @click="navStatus = false" id="mainNav" />
+    <main-nav @click="navStatus = false" id="mainNav">
+      <socials />
+    </main-nav>
     <button
       class="hamburger hamburger--collapse"
       type="button"
