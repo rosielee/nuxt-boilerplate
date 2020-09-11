@@ -1,5 +1,5 @@
 <template>
-  <header :class="navStatus ? 'navOpen' : 'navClosed'">
+  <header>
     <main-nav-btn @nav-btn-pressed="navToggle()" :labelName="labelName" :buttonState="navStatus" />
     <section id="brand" @click="navToggle(false)">
       <nuxt-link to="/">brand here</nuxt-link>
@@ -39,6 +39,13 @@
       $route(e) {
         this.navToggle(false)
       },
+    },
+    head() {
+      return {
+        bodyAttrs: {
+          class: this.navStatus ? 'navOpen' : 'navClosed',
+        },
+      }
     },
   }
 </script>

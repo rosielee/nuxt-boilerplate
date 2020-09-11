@@ -42,6 +42,10 @@
     .hamburger-inner::after {
       background-color: $hamburger-active-layer-color;
     }
+    .hamburger-inner::before {
+      width: 100%;
+
+    }
   }
 }
 
@@ -65,7 +69,7 @@
     background-color: $hamburger-layer-color;
     border-radius: $hamburger-layer-border-radius;
     position: absolute;
-    transition-property: transform;
+    transition-property: transform, width;
     transition-duration: 0.15s;
     transition-timing-function: ease;
   }
@@ -78,9 +82,11 @@
 
   &::before {
     top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    width: $hamburger-layer-width - 5px;
   }
 
   &::after {
     bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    width: $hamburger-layer-width - 10px;
   }
 }
