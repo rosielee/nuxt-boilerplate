@@ -12,4 +12,13 @@
 </script>
 
 <style lang="scss" scoped>
+  nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: $primary;
+    display: none;
+  }
 </style>

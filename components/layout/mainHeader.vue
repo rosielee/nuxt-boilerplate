@@ -1,21 +1,12 @@
 <template>
   <header :class="navStatus ? 'navOpen' : 'navClosed'">
-    <section id="brand" @click="navStatus = false">
+    <main-nav-btn @nav-btn-pressed="navToggle()" :labelName="labelName" :buttonState="navStatus" />
+    <section id="brand" @click="navToggle(false)">
       <nuxt-link to="/">brand here</nuxt-link>
     </section>
-    <main-nav @click="navStatus = false" id="mainNav">
+    <main-nav @click="navToggle(false)" id="mainNav">
       <socials />
     </main-nav>
-    <button
-      class="hamburger hamburger--collapse"
-      type="button"
-      :class="navStatus ? 'open is-active' : 'closed'"
-      @click="navStatus = !navStatus"
-    >
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
   </header>
 </template>
 
@@ -24,61 +15,60 @@
     data: () => {
       return {
         navStatus: false,
+        labelName: 'Menu',
       }
+    },
+    methods: {
+      navToggle: function (toggle) {
+        toggle === false
+          ? (this.navStatus = false)
+          : (this.navStatus = !this.navStatus)
+
+        this.navStatus === false
+          ? (this.labelName = 'Menu')
+          : (this.labelName = 'Close')
+      },
+      franky: function () {
+        console.log('pork and beans')
+      },
     },
     mounted() {
       // console.log(this.navStatus)
     },
     watch: {
       $route(e) {
-        this.navStatus = false
+        this.navToggle(false)
       },
     },
   }
 </script>
 
 <style lang="scss" scoped>
-  @import '@/assets/scss/hamburgers/hamburgers.scss';
-
   header {
     position: relative;
     z-index: 999999;
     top: 0;
     left: 0;
+    width: 100%;
+    height: auto;
+    background: $white;
   }
-  // * desktop style remove if all hamburger
-  button {
-    display: none;
+  #brand {
     position: relative;
+    z-index: 9;
+    display: block;
   }
-  // * =======
-  @include breakpoint(mobile) {
-    // * mobile to styles to use as desktop  styles if all hamburger
-    #brand {
-      position: relative;
-      z-index: 9;
-      display: block;
-    }
-    button {
-      display: block;
-      z-index: 10;
-    }
+  #mainNav {
+    display: none;
+    padding-top: $headerHeight;
+  }
+  .navOpen {
     #mainNav {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      background: navajowhite;
-      display: none;
+      display: block;
+      z-index: 5;
     }
-    // nav open
-    .navOpen {
-      #mainNav {
-        display: block;
-        z-index: 5;
-      }
+    .menu-btn {
+      color: $white;
     }
-    // * =======
   }
 </style>
