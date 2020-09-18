@@ -28,4 +28,5 @@
 </script>
 
 <style lang="scss" scoped>
+  // @include breakpoint(mobile) {}
 </style>

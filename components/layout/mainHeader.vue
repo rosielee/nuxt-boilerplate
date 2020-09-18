@@ -1,10 +1,10 @@
 <template>
   <header>
-    <main-nav-btn @nav-btn-pressed="navToggle()" :labelName="labelName" :buttonState="navStatus" />
-    <section id="brand" @click="navToggle(false)">
+    <main-nav-btn />
+    <section id="brand" @click="$store.dispatch('setNavPayload', false)">
       <nuxt-link to="/">brand here</nuxt-link>
     </section>
-    <main-nav @click="navToggle(false)" id="mainNav">
+    <main-nav v-show="$store.state.navState" @click="$store.dispatch('setNavPayload', false)">
       <socials />
     </main-nav>
   </header>
@@ -12,38 +12,13 @@
 
 <script>
   export default {
-    data: () => {
-      return {
-        navStatus: false,
-        labelName: 'Menu',
-      }
-    },
-    methods: {
-      navToggle: function (toggle) {
-        toggle === false
-          ? (this.navStatus = false)
-          : (this.navStatus = !this.navStatus)
-
-        this.navStatus === false
-          ? (this.labelName = 'Menu')
-          : (this.labelName = 'Close')
-      },
-      franky: function () {
-        console.log('pork and beans')
-      },
-    },
     mounted() {
       // console.log(this.navStatus)
-    },
-    watch: {
-      $route(e) {
-        this.navToggle(false)
-      },
     },
     head() {
       return {
         bodyAttrs: {
-          class: this.navStatus ? 'navOpen' : 'navClosed',
+          class: this.$store.state.navState ? 'navOpen' : 'navClosed',
         },
       }
     },
@@ -66,12 +41,10 @@
     display: block;
   }
   #mainNav {
-    display: none;
     padding-top: $headerHeight;
   }
   .navOpen {
     #mainNav {
-      display: block;
       z-index: 5;
     }
     .menu-btn {

@@ -1,15 +1,15 @@
 <template>
   <button
     class="hamburger hamburger--collapse menu-btn"
-    :class="buttonState ? 'open is-active' : 'closed'"
+    :class="$store.state.navState ? 'open is-active' : 'closed'"
     type="button"
     name="menu-btn"
-    @click="$emit('nav-btn-pressed')"
+    @click="$store.dispatch('setNav')"
   >
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
     </span>
-    <label for="menu-btn">{{ labelName }}</label>
+    <label for="menu-btn">{{ $store.state.navState ? 'CLOSE' : 'MENU' }}</label>
   </button>
 </template>
 
@@ -19,10 +19,6 @@
       buttonState: {
         type: Boolean,
         default: false,
-      },
-      labelName: {
-        type: String,
-        default: 'MENU',
       },
     },
   }
