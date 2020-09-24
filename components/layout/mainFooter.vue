@@ -4,13 +4,11 @@
       <nuxt-link to="/">brand here</nuxt-link>
     </section>
     <section>
-      <main-nav />
+      <!-- <main-nav /> -->
       <secondary-nav />
     </section>
     <section>
-      Contact:
-      email: kljsdn@ksjdfh.com
-      tel: 01963 273 833
+      Contact: email: kljsdn@ksjdfh.com tel: 01963 273 833
       <socials />
     </section>
     <section>© company name {{ year }}, All rights reserved.</section>
