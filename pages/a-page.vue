@@ -7,6 +7,9 @@
       <div class="swiper-slide">Slide 3</div>
     </slider-container>
     <h2 id="gsaptest">fdkghfaksjhkraejghkejragh</h2>
+    <section id="newsletter-mc-form">
+      <mc-newsletter />
+    </section>
   </div>
 </template>
 

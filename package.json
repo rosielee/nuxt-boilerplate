@@ -16,7 +16,8 @@
     "gsap": "file:gsap-bonus.tgz",
     "nuxt": "^2.14.4",
     "simple-icons": "^3.6.1",
-    "swiper": "^6.1.2"
+    "swiper": "^6.1.2",
+    "vue-mailchimp-subscribe": "^1.1.0"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
