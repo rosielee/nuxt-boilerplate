@@ -104,7 +104,7 @@
         font-size: 1.6vw;
         line-height: 110%;
         margin-bottom: 20px;
-        color: $grey;
+        color: grey;
         @include breakpoint(mobile) {
           font-size: 6vw;
         }
@@ -139,10 +139,10 @@
       padding: 15px 10px;
     }
     input {
-      background: rgba($lightgrey, 0.2);
-      border: 1px solid $lightgrey;
+      background: rgba(lightgrey, 0.2);
+      border: 1px solid lightgrey;
       font-size: 20px;
-      color: $grey;
+      color: grey;
     }
     button {
       background: $black;
