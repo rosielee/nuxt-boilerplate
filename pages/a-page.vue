@@ -6,11 +6,12 @@
       <div class="swiper-slide">Slide b</div>
       <div class="swiper-slide">Slide 3</div>
     </slider-container>
-    <general-image />
+
     <h2 id="gsaptest">fdkghfaksjhkraejghkejragh</h2>
     <section id="newsletter-mc-form">
       <mc-newsletter />
     </section>
+    <general-image />
   </div>
 </template>
 
