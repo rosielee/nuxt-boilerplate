@@ -38,6 +38,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/test.js'
   ],
   /*
   ** Auto import components
@@ -58,8 +59,44 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/firebase',
+    '@nuxtjs/universal-storage'
+
   ],
+  firebase: {
+    config: {
+      apiKey: process.env.FIREBASE_APIKEY,
+      authDomain: process.env.FIREBASE_AUTHDOMAIN,
+      databaseURL: process.env.FIREBASE_DATABASEURL,
+      projectId: process.env.FIREBASE_PROJECTID,
+      storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+      messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
+      appId: process.env.FIREBASE_APPID,
+      measurementId: process.env.FIREBASE_MEASUREMENTID
+    },
+    services: {
+      auth: {
+        persistence: 'local', // default
+        initialize: {
+          onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+          onAuthStateChangedAction: 'onAuthStateChangedAction'
+        },
+        ssr: false // default
+      },
+      firestore: true,
+      functions: true,
+      storage: false,
+      realtimeDb: false,
+      messaging: false,
+      performance: true,
+      analytics: true,
+      remoteConfig: true
+    }
+  },
+  storage: {
+    // initialState: { userSignedIn: true }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

@@ -1,6 +1,7 @@
 <template>
   <main>
     <h1>Dave</h1>
+    <nuxt-link to="a-page">A page</nuxt-link>
   </main>
 </template>
 
