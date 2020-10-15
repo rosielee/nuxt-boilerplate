@@ -19,8 +19,8 @@
   import { createSEOMeta } from '~/utils/seo.js'
   import { gsap } from 'gsap'
   import { SplitText } from 'gsap/SplitText'
-  // * greensock.com/docs/v3/Installation?checked=core,scrollTrigger,splitText#ZIP
 
+  // * greensock.com/docs/v3/Installation?checked=core,scrollTrigger,splitText#ZIP
   // if (process.client) {
   https: gsap.registerPlugin(SplitText)
   // }

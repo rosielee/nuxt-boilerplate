@@ -1,6 +1,7 @@
 <template>
   <main>
     <h1>Dave</h1>
+    <nuxt-link to="restricted-page">Restricted</nuxt-link>
   </main>
 </template>
 
