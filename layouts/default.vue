@@ -3,14 +3,18 @@
     <main-header />
     <nav>
       <button
-        v-if="!$store.state.auth.user.userActive"
-        @click="$store.dispatch('auth/signIn', { $fireAuth, $fireAuthObj })"
+        v-if="!$storage.getUniversal('userSignedIn')"
+        @click="$fireSignIn"
       >
         Login
       </button>
-      <button v-else @click="$store.dispatch('auth/signOut', { $fireAuth })">
-        logout
-      </button>
+      <button v-else @click="$fireSignOut">logout</button>
+
+      <section>
+        <h3>{{ $store.state.user.displayName }}</h3>
+        <p>{{ $store.state.user.photoURL }}</p>
+        <p>{{ $store.state.user.email }}</p>
+      </section>
     </nav>
     <Nuxt />
     <main-footer />
@@ -21,7 +25,8 @@
   export default {
     methods: {},
     mounted() {
-      console.log('STORE STATE', this.$store.state)
+      // console.log('STORE STATE', this.$store)
+      // console.log(this)
     },
   }
 </script>

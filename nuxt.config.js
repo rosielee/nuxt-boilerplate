@@ -38,7 +38,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '~/plugins/test.js'
+    '~/plugins/njFireAuthPlugin.js'
   ],
   /*
   ** Auto import components
@@ -78,10 +78,6 @@ export default {
     services: {
       auth: {
         persistence: 'local', // default
-        initialize: {
-          onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
-          onAuthStateChangedAction: 'onAuthStateChangedAction'
-        },
         ssr: false // default
       },
       firestore: true,
