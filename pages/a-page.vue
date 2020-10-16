@@ -25,6 +25,7 @@
   https: gsap.registerPlugin(SplitText)
   // }
   export default {
+    middleware: 'authenticated',
     mounted() {
       setTimeout(() => {
         gsap.fromTo('#gsaptest', { opacity: 0 }, { opacity: 1, duration: 1 })
