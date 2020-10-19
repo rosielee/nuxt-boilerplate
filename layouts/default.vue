@@ -1,6 +1,7 @@
 <template>
   <div>
     <main-header />
+    <div class="loading" v-if="$store.state.userLoading">Loading...</div>
     <nav>
       <button
         v-if="!$storage.getUniversal('userSignedIn')"
@@ -25,11 +26,17 @@
   export default {
     methods: {},
     mounted() {
-      // console.log('STORE STATE', this.$store)
+      // console.log('STORE STATE', this.$store.state.userLoading)
       // console.log(this)
     },
   }
 </script>
 
 <style lang="scss" scoped>
+  .loading {
+    width: 100%;
+    height: auto;
+    background: peachpuff;
+    padding: 40px;
+  }
 </style>

@@ -6,8 +6,9 @@ export const state = () => ({
     email: null,
     emailVerified: null,
     photoURL: null,
-    displayName: null
-  }
+    displayName: null,
+  },
+  userLoading: null
 })
 
 export const mutations = {
@@ -19,11 +20,15 @@ export const mutations = {
   },
   setUserInfo(state, payload) {
     state.user = payload
+  },
+  setUserLoading(state, payload) {
+    state.userLoading = payload
   }
 }
 
 export const actions = {
   async nuxtServerInit(vuexContext, context) {
+    vuexContext.dispatch('setUserLoading', true)
     // console.log(context.$storage.getUniversal('userSignedIn'));
   },
   setNav({ commit }) {
@@ -34,5 +39,8 @@ export const actions = {
   },
   setUserInfo({ commit }, payload) {
     commit('setUserInfo', payload)
+  },
+  setUserLoading({ commit }, payload) {
+    commit('setUserLoading', payload)
   }
 }
